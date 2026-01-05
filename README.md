@@ -63,7 +63,7 @@ Test users were created in Azure AD to simulate failed authentication attempts.
 Multiple failed sign-in attempts were generated against the test user account to simulate a brute-force attack.
 
 📸 **Screenshot:** Failed sign-in activity  
-![Failed Sign-ins](screenshots/failed-logins.png)
+![Failed Sign-ins](screenshots/failed-signins.png)
 
 ---
 
@@ -93,7 +93,7 @@ A scheduled analytics rule was created in Microsoft Sentinel using the validated
 - Alert grouping: Enabled to group related alerts into a single incident
 
 📸 **Screenshot:** Analytics rule configuration  
-![Analytics Rule Configuration](screenshots/create-analytics-rule.png)
+![Analytics Rule Configuration](screenshots/analytics-rule.png)
 
 ---
 
