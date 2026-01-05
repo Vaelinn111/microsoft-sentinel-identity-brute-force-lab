@@ -39,7 +39,7 @@ This project simulates real-world SOC workflows including detection engineering,
 Microsoft Sentinel was enabled on a dedicated Log Analytics Workspace.
 
 📸 **Screenshot:** Sentinel enabled on Log Analytics Workspace  
-![Sentinel Enabled](screenshots/01-sentinel-enabled.png)
+![Sentinel Enabled](screenshots/sentinel-enabled.png)
 
 ---
 
@@ -47,7 +47,7 @@ Microsoft Sentinel was enabled on a dedicated Log Analytics Workspace.
 The Azure Active Directory data connector was enabled to ingest sign-in logs.
 
 📸 **Screenshot:** Azure AD data connector  
-![Data Connector](screenshots/02-data-connector.png)
+![Data Connector](screenshots/data-connector.png)
 
 ---
 
@@ -55,7 +55,7 @@ The Azure Active Directory data connector was enabled to ingest sign-in logs.
 Test users were created in Azure AD to simulate failed authentication attempts.
 
 📸 **Screenshot:** Test user creation  
-![Create Users](screenshots/04-create-test-users.png)
+![Create Users](screenshots/create-test-users.png)
 
 ---
 
@@ -63,7 +63,7 @@ Test users were created in Azure AD to simulate failed authentication attempts.
 Multiple failed sign-in attempts were generated against the test user account to simulate a brute-force attack.
 
 📸 **Screenshot:** Failed sign-in activity  
-![Failed Sign-ins](screenshots/05-failed-logins.png)
+![Failed Sign-ins](screenshots/failed-logins.png)
 
 ---
 
@@ -93,7 +93,7 @@ A scheduled analytics rule was created in Microsoft Sentinel using the validated
 - Alert grouping: Enabled to group related alerts into a single incident
 
 📸 **Screenshot:** Analytics rule configuration  
-![Analytics Rule Configuration](screenshots/07-create-analytics-rule.png)
+![Analytics Rule Configuration](screenshots/create-analytics-rule.png)
 
 ---
 
@@ -103,7 +103,7 @@ After triggering multiple failed sign-in attempts against the test user account,
 The incident aggregated failed authentication events into a single case for investigation.
 
 📸 **Screenshot:** Sentinel incident generated  
-![Incident Generated](screenshots/08-incident-generated.png)
+![Incident Generated](screenshots/incident-generated.png)
 
 ---
 
@@ -118,7 +118,7 @@ The incident was investigated by reviewing:
 KQL was used during investigation to confirm the scope and frequency of failed authentication attempts.
 
 📸 **Screenshot:** Incident investigation with logs  
-![Incident Investigation](screenshots/09-incident-investigation.png)
+![Incident Investigation](screenshots/incident-investigation.png)
 
 ---
 
@@ -131,7 +131,7 @@ The investigation confirmed:
 - No successful authentication observed
 
 📸 **Screenshot:** Analyst comments and evidence  
-![Analyst Notes](screenshots/10-analyst-notes.png)
+![Analyst Notes](screenshots/analyst-notes.png)
 
 ---
 
@@ -141,7 +141,7 @@ After completing the investigation, the incident was closed with the classificat
 This completed the SOC workflow from detection to resolution.
 
 📸 **Screenshot:** Incident closed  
-![Incident Closed](screenshots/11-incident-closed.png)
+![Incident Closed](screenshots/incident-closed.png)
 
 ---
 
