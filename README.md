@@ -1,37 +1,38 @@
 # Microsoft Sentinel – Identity Brute Force Detection Lab
 
 ## Overview
-This lab demonstrates how to configure Microsoft Sentinel to detect potential identity brute-force attacks against Azure Active Directory (Entra ID) accounts. The detection is based on analyzing Azure AD sign-in logs using KQL and creating a scheduled analytics rule that generates incidents when multiple failed sign-in attempts occur within a short time window.
+This lab shows how Microsoft Sentinel can be used to detect and investigate identity-based brute force and password spraying activity using Microsoft Entra ID (Azure AD) sign-in logs. The objective is to demonstrate how failed authentication behavior appears in Sentinel, how analytic rules surface suspicious activity, and how alerts are investigated from a SOC or Security Analyst perspective.
 
-This project simulates real-world SOC workflows including detection engineering, alert validation, incident investigation, and incident closure.
-
----
-
-## Objectives
-- Enable Microsoft Sentinel in an Azure Log Analytics Workspace
-- Ingest Azure AD Sign-In Logs
-- Create test users to simulate failed authentication attempts
-- Write and validate KQL queries for failed sign-ins
-- Create a Sentinel analytics rule for identity brute-force detection
-- Generate and investigate a Sentinel incident
-- Document findings and close the incident
+The focus is on practical detection, alert context, and investigation workflows rather than simply generating alerts.
 
 ---
 
-## Tools & Technologies
-- Microsoft Azure
-- Microsoft Sentinel
-- Azure Active Directory (Entra ID)
-- Log Analytics Workspace
-- Kusto Query Language (KQL)
+
+## What This Lab Shows
+
+- How identity brute force and password spray activity appears in Entra ID sign-in logs  
+- How to create and validate a Sentinel analytic rule using KQL  
+- What alert data is available for triage and investigation  
+- Where detection works well and where gaps may exist  
+
+---
+
+## Environment & Tools
+
+- Microsoft Sentinel  
+- Microsoft Entra ID (Azure AD)  
+- Log source: `SigninLogs`  
+- Detection method: KQL-based analytic rule  
+- Attack simulation: Manual failed sign-in attempts using invalid credentials  
 
 ---
 
 ## Lab Architecture
-- Azure Log Analytics Workspace with Microsoft Sentinel enabled
-- Azure AD Sign-In Logs as the primary data source
-- Scheduled analytics rule triggering incidents
-- Sentinel incident investigation dashboard
+
+- Azure Log Analytics Workspace with Microsoft Sentinel enabled  
+- Azure AD Sign-In Logs as the primary data source  
+- Scheduled analytics rule triggering incidents  
+- Sentinel incident investigation dashboard  
 
 ---
 
@@ -146,7 +147,7 @@ This completed the SOC workflow from detection to resolution.
 ---
 
 ## Key Takeaways
-- Microsoft Sentinel can effectively detect identity-based attacks using Azure AD telemetry
+- Microsoft Sentinel can detect identity-based attacks using Entra ID telemetry
 - KQL enables precise detection engineering for authentication threats
 - Analytics rules automate alerting and incident creation
 - This lab mirrors real-world SOC analyst investigation and response workflows
@@ -156,7 +157,7 @@ This completed the SOC workflow from detection to resolution.
 ## Future Improvements
 - Implement automated responses using Logic Apps
 - Add password spray detection rules
-- Add MFA-related detections and impossible travel alerts
+- Incorporate MFA-based detections and impossible travel alerts
 
 ---
 
