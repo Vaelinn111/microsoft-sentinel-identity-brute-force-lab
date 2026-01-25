@@ -53,7 +53,7 @@ The Azure Active Directory data connector was enabled to ingest sign-in logs.
 ---
 
 ## Step 3: Create Test Users
-Test users were created in Azure AD to simulate failed authentication attempts.
+Test users were created in Azure AD to generate authentication activity for detection testing.
 
 📸 **Screenshot:** Test user creation  
 ![Create Users](screenshots/create-test-users.png)
@@ -61,7 +61,7 @@ Test users were created in Azure AD to simulate failed authentication attempts.
 ---
 
 ## Step 4: Simulate Failed Sign-Ins
-Multiple failed sign-in attempts were generated against the test user account to simulate a brute-force attack.
+Multiple failed sign-in attempts were generated against the test user account to simulate identity brute force behavior.
 
 📸 **Screenshot:** Failed sign-in activity  
 ![Failed Sign-ins](screenshots/failed-signins.png)
@@ -69,7 +69,7 @@ Multiple failed sign-in attempts were generated against the test user account to
 ---
 
 ## Step 5: Query Sign-In Logs with KQL
-KQL was used to identify repeated failed sign-in attempts.
+KQL was used to identify repeated failed sign-in attempts associated with a single user and IP address.
 
 ```kql
 SigninLogs
@@ -91,7 +91,7 @@ A scheduled analytics rule was created in Microsoft Sentinel using the validated
 - Lookup period: Last 1 hour
 - Alert threshold: Greater than 0 results
 - Incident creation: Enabled
-- Alert grouping: Enabled to group related alerts into a single incident
+- Alert grouping: Enabled
 
 📸 **Screenshot:** Analytics rule configuration  
 ![Analytics Rule Configuration](screenshots/analytics-rule.png)
@@ -99,9 +99,7 @@ A scheduled analytics rule was created in Microsoft Sentinel using the validated
 ---
 
 ## Step 7: Generate Sentinel Incident
-After triggering multiple failed sign-in attempts against the test user account, Microsoft Sentinel automatically generated an incident based on the analytics rule.
-
-The incident aggregated failed authentication events into a single case for investigation.
+After triggering multiple failed sign-in attempts, Microsoft Sentinel automatically generated an incident based on the analytics rule. Related events were grouped into a single incident for investigation.
 
 📸 **Screenshot:** Sentinel incident generated  
 ![Incident Generated](screenshots/incident-generated.png)
@@ -111,12 +109,12 @@ The incident aggregated failed authentication events into a single case for inve
 ## Step 8: Incident Investigation
 The incident was investigated by reviewing:
 - Azure AD sign-in logs
-- UserPrincipalName associated with failed attempts
+- Affected UserPrincipalName
 - Source IP address
-- Application used during authentication attempts
+- Application involved in authentication attempts
 - Result descriptions indicating invalid credentials
 
-KQL was used during investigation to confirm the scope and frequency of failed authentication attempts.
+Additional KQL queries were used to confirm the scope and frequency of the activity.
 
 📸 **Screenshot:** Incident investigation with logs  
 ![Incident Investigation](screenshots/incident-investigation.png)
@@ -124,11 +122,11 @@ KQL was used during investigation to confirm the scope and frequency of failed a
 ---
 
 ## Step 9: Analyst Notes and Validation
-Analyst notes were added to document findings and confirm the incident as a true positive identity brute-force attempt.
+Analyst notes were added to document findings and validate the incident as a true positive.
 
 The investigation confirmed:
-- Multiple failed sign-in attempts
-- Single target user
+- Multiple failed authentication attempts
+- A single targeted user account
 - No successful authentication observed
 
 📸 **Screenshot:** Analyst comments and evidence  
@@ -137,9 +135,7 @@ The investigation confirmed:
 ---
 
 ## Step 10: Incident Closure
-After completing the investigation, the incident was closed with the classification **True Positive – Suspicious Activity**.
-
-This completed the SOC workflow from detection to resolution.
+The incident was closed with the classification True Positive – Suspicious Activity, completing the SOC workflow from detection through resolution.
 
 📸 **Screenshot:** Incident closed  
 ![Incident Closed](screenshots/incident-closed.png)
